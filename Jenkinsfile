@@ -29,9 +29,8 @@ pipeline {
         stage('Sonarqube Analysis'){
             steps{
                 withSonarQubeEnv('sonarqube-server') {
-                    sh '/var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/sonar-scanner/bin/sonar-scanner ' +
-                           '-Dsonar.projectName=Sathya ' +
-                           '-Dsonar.projectKey=Sathya'
+                    sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=Sathya \
+                    -Dsonar.projectKey=Sathya '''
                 }
                 
             }
